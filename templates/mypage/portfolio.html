@@ -1,0 +1,27 @@
+{% extends "mypage/base.html" %}
+{% load static %}
+
+{% block content %}
+<h1 class="center">Portfölj</h1>
+
+<div class="row">
+
+    {% for x in examples %}
+    <div class="col s12 m6 l4">
+        <div style="border-radius: 20px;" class="card light-blue lighten-4">
+          <div class="card-content black-text">
+            <span class="card-title"><strong>{{x.example_name}}</strong></span>
+            
+            <span class="black-text text-darken-4">{{x.example_content|safe}}</span>
+            <br><br>
+            <span style="font-size: 70%;"class="grey-text text-darken-1s">{{x.example_published}}</span>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+</div>
+
+
+<script src="{% static 'tinymce/js/prism.js' %}"></script>
+{% endblock %}
